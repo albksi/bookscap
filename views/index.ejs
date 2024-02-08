@@ -1,0 +1,153 @@
+<%- include('partials/header.ejs') %>
+
+<div class="container marketing">
+  <div class="row header-divider">
+    <div class="col-lg-4">
+      <!-- <svg class="bd-placeholder-img rounded-circle" width="200" height="200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></svg> -->
+      <img
+        src="/assets/monkey.jpg"
+        width="355"
+        height="250"
+        class="rounded-circle"
+        alt="monkey-mind"
+      />
+    </div>
+    <div class="col-lg-8">
+      <h2 class="fw-normal">Welcome</h2>
+      <p class="fs-4">
+        Welcome to the BooksCap website. <br />
+        This website catalogues a summary of books I have read and the striking
+        points gleaned from them. The website is built with node.js, bootstrap,
+        css and javascript.
+      </p>
+    </div>
+  </div>
+
+  <!-- <hr class="featurette-divider" /> -->
+  <% counter = 0 %>
+  <br />
+  <div class="container" id="myCarousel" >
+    <div class="row">
+      <div class="col align-self-end">
+        <form method="post" action="/sort">
+          <b class="sort-options">Sort by:</b>
+          <button type="submit" class="sort-options-button">Rating</button>
+          <button
+            type="submit"
+            formaction="/recency"
+            class="sort-options-button"
+          >
+            Recency
+          </button>
+        </form>
+      </div>
+
+      <hr class="featurette-subdivider" />
+    </div>
+  </div>
+
+  <% data.forEach((item)=>{ %> <% counter += 1 %> <% if(counter % 2 != 0) {%>
+
+  <form method="post" action="/edit">
+    <input type="hidden" name="id" value="<%= item.id %>" />
+    <input type="hidden" name="title" value="<%= item.title %>" />
+    <input type="hidden" name="author" value="<%= item.author %>" />
+    <input type="hidden" name="salient" value="<%= item.salient %>" />
+    <input type="hidden" name="description" value="<%= item.description %>" />
+    <input type="hidden" name="isbn" value="<%= item.isbn %>" />
+    <input type="hidden" name="rating" value="<%= item.rating %>" />
+    <input type="hidden" name="dateread" value="<%= item.dateread %>" />
+
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading fw-normal lh-1">
+          <button type="submit">
+            <span class="text-start"><%= item.title %></span>
+          </button>
+        </h2>
+        <span class="fs-5">by <%= item.author %> </span><br />
+        <span class="fs-5 rating"><%= item.rating %>-star rating </span>
+        <br />
+        <br />
+        <p class="lead"><%= item.salient %></p>
+        <br />
+        <p><%= item.dateread.toLocaleDateString() %></p>
+      </div>
+      <div class="col-md-5">
+        <button type="submit">
+          <img
+            class="imgholder"
+            src="https://covers.openlibrary.org/b/isbn/<%=item.isbn%>-M.jpg"
+            width="300"
+            height="300"
+          />
+        </button>
+        <br />
+        <br />
+        <button
+          type="button submit"
+          class="btn btn-lg btn-danger col-md-4"
+          formaction="/delete/<%= item.id %>"
+        >
+          Delete Book
+        </button>
+      </div>
+    </div>
+  </form>
+  <hr class="featurette-divider" />
+
+  <% } %> <% if(counter % 2 == 0) {%>
+
+  <form method="post" action="/edit">
+    <input type="hidden" name="id" value="<%= item.id %>" />
+    <input type="hidden" name="title" value="<%= item.title %>" />
+    <input type="hidden" name="author" value="<%= item.author %>" />
+    <input type="hidden" name="salient" value="<%= item.salient %>" />
+    <input type="hidden" name="description" value="<%= item.description %>" />
+    <input type="hidden" name="isbn" value="<%= item.isbn %>" />
+    <input type="hidden" name="rating" value="<%= item.rating %>" />
+    <input type="hidden" name="dateread" value="<%= item.dateread %>" />
+
+    <div class="row featurette">
+      <div class="col-md-7 order-md-2">
+        <h2 class="featurette-heading fw-normal lh-1">
+          <button type="submit">
+            <span class="text-start"><%= item.title %></span>
+          </button>
+        </h2>
+        <span class="fs-5">by <%= item.author %> </span><br />
+        <span class="fs-5 rating"><%= item.rating %>-star rating </span>
+        <br />
+        <br />
+        <p class="lead"><%= item.salient %></p>
+        <br />
+        <p><%= item.dateread.toLocaleDateString() %></p>
+      </div>
+      <div class="col-md-5 order-md-1">
+        <button type="submit">
+          <img
+            class="imgholder"
+            src="https://covers.openlibrary.org/b/isbn/<%=item.isbn%>-M.jpg"
+            width="300"
+            height="300"
+          />
+        </button>
+        <br />
+        <br />
+        <button
+          type="button submit"
+          class="btn btn-lg btn-danger col-md-4"
+          formaction="/delete/<%= item.id %>"
+        >
+          Delete Book
+        </button>
+      </div>
+    </div>
+    <br />
+  </form>
+  <hr class="featurette-divider" />
+
+  <% } %> <% }); %>
+</div>
+
+<%- include('partials/footer.ejs') %>

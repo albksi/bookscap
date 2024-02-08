@@ -1,0 +1,32 @@
+-- CREATE TABLE items ( id SERIAL PRIMARY KEY, title VARCHAR(24))
+
+-- CREATE TABLE book (
+-- 	id SERIAL PRIMARY KEY,
+-- 	title VARCHAR(255),
+-- 	author VARCHAR(255),
+-- 	salient TEXT, 
+-- 	description TEXT,
+-- 	isbn VARCHAR(13),
+-- 	rating INTEGER,
+-- 	dateRead DATE DEFAULT CURRENT_DATE
+-- )
+
+
+-- insert into book (title, author, salient, description, isbn, rating)
+-- values('umpty dumpty', 'Bex', 'the main points of the story are as follows','am gonna distroy you without calling out your name',
+-- 					   '0385472579',3);
+
+
+insert into book (title, author, salient, description, isbn, rating)
+values('The Great Mental Models Volume 1: General Thinking Concepts', 'Shane Parrish, Rhiannon Beaubien', 
+	   'Solve problems. Think with clarity. Achieve your goals.','The secret to better decision-making is learning things that won’t change. Mastering a small number of versatile concepts with broad applicability enables you to rapidly grasp new areas, identify patterns, and understand how the world works. Don’t waste your time on knowledge with an expiry date - focus on the fundamentals.
+
+The Farnam Street latticework of mental models gives you the durable cognitive tools you need to avoid problems and make better decisions.
+
+A mental model is a representation of how something works. Constructing mental models helps you to navigate the world efficiently and intelligently. Time and time again, great thinkers such as Charlie Munger and Warren Buffett have found mental models indispensable in both solving problems and preventing them in the first place. Cultivating stronger mental models is one of the most powerful things you can do to become a better thinker. 
+
+',
+					   '1999449002',4);
+					   
+					   
+					   

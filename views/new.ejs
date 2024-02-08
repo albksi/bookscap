@@ -1,0 +1,73 @@
+<%- include('partials/header.ejs') %>
+
+<div class="container marketing">
+  <hr />
+  <h2>New book details:</h2>
+  <hr />
+
+  <form method="post" action="/new">
+    <div class="mb-3">
+      <label for="bookTitle" class="form-label">Title: </label>
+      <input
+        type="text"
+        class="form-control"
+        id="bookTitle"
+        name="bookTitle"
+        aria-describedby="textHelp"
+      />
+      <div id="textHelp" class="form-text">Enter book title</div>
+    </div>
+    <div class="mb-3">
+      <label for="bookAuthor" class="form-label">Author: </label>
+      <input
+        type="text"
+        class="form-control"
+        id="bookAuthor"
+        name="bookAuthor"
+        aria-describedby="textHelp"
+      />
+      <div id="textHelp" class="form-text">Enter author name</div>
+    </div>
+    <div class="mb-3">
+      <label for="bookISBN" class="form-label">ISBN: </label>
+      <input
+        type="text"
+        class="form-control"
+        id="bookISBN"
+        name="bookISBN"
+        aria-describedby="textHelp"
+      />
+      <div id="textHelp" class="form-text">Enter ISBN</div>
+    </div>
+    <div class="mb-3">
+      <label for="bookSalient" class="form-label">Salient Point: </label>
+      <textarea class="form-control" id="bookSalient" name="bookSalient" rows="2"></textarea
+      >
+      <div id="textHelp" class="form-text">Enter key points</div>
+    </div>
+    <div class="mb-3">
+      <label for="bookDescription" class="form-label">Description: </label>
+      <textarea class="form-control" id="bookDescription" name="bookDescription" rows="10"></textarea
+      >
+    </div>
+    <div class="mb-3">
+      <label for="bookRating" class="form-label">Rating: </label>
+      <input
+        type="text"
+        class="form-control"
+        id="bookRating"
+        name="bookRating"
+        aria-describedby="textHelp"
+      />
+      <div id="textHelp" class="form-text">Enter book rating (1 - 5)</div>
+    </div>
+    <div class="float-end">
+      <button type="submit" class="btn btn-secondary" formaction="/" formmethod="get">Cancel</button>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+
+  <hr class="featurette-divider" />
+
+  <div><%- include('partials/footer.ejs') %></div>
+</div>
